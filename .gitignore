@@ -1,0 +1,7 @@
+.ssh/
+.termux/
+storage/
+*.pem
+*.key
+.env
+.gitconfig

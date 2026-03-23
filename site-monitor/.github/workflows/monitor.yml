@@ -1,0 +1,17 @@
+name: Site Health Check
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run health check
+        env:
+          APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
+        run: python3 health_monitor.py
